@@ -1,0 +1,38 @@
+SRC_DATA_PATH=${SRC_DATA_PATH:-/root/autodl-tmp/data}
+OUTPUT_DIR=${OUTPUT_DIR:-/root/autodl-tmp/output/segearth_r2_lora}
+BAD_SAMPLE_LOG=${BAD_SAMPLE_LOG:-${OUTPUT_DIR}/bad_samples.jsonl}
+HARD_DATA_PATH=${HARD_DATA_PATH:-/root/autodl-tmp/data_hard_mining}
+HARD_OUTPUT_DIR=${HARD_OUTPUT_DIR:-${OUTPUT_DIR}_hard_mining}
+
+HARD_SAMPLE_THRESHOLD=${HARD_SAMPLE_THRESHOLD:-40}
+HARD_SAMPLE_TOP_K=${HARD_SAMPLE_TOP_K:-0}
+REPLAY_RATIO=${REPLAY_RATIO:-0.5}
+HARD_DATA_SEED=${HARD_DATA_SEED:-42}
+OVERWRITE_HARD_DATA=${OVERWRITE_HARD_DATA:-1}
+#
+HARD_MAX_STEPS=${HARD_MAX_STEPS:-1600}
+HARD_LEARNING_RATE=${HARD_LEARNING_RATE:-1e-5}
+HARD_WARMUP_STEPS=${HARD_WARMUP_STEPS:-50}
+HARD_SAVE_STEPS=${HARD_SAVE_STEPS:-100}
+HARD_RESUME=${HARD_RESUME:-0}
+
+python scripts/prepare_hard_mining.py \
+    --src "${SRC_DATA_PATH}" \
+    --dst "${HARD_DATA_PATH}" \
+    --bad-log "${BAD_SAMPLE_LOG}" \
+    --threshold "${HARD_SAMPLE_THRESHOLD}" \
+    --top-k "${HARD_SAMPLE_TOP_K}" \
+    --replay-ratio "${REPLAY_RATIO}" \
+    --seed "${HARD_DATA_SEED}" \
+    --overwrite "${OVERWRITE_HARD_DATA}"
+
+export BASE_DATA_PATH="${HARD_DATA_PATH}"
+export QWEN_MODEL_PATH="${OUTPUT_DIR}"
+export OUTPUT_DIR="${HARD_OUTPUT_DIR}"
+export MAX_STEPS="${HARD_MAX_STEPS}"
+export LEARNING_RATE="${HARD_LEARNING_RATE}"
+export WARMUP_STEPS="${HARD_WARMUP_STEPS}"
+export SAVE_STEPS="${HARD_SAVE_STEPS}"
+export RESUME="${HARD_RESUME}"
+
+bash scripts/train.sh

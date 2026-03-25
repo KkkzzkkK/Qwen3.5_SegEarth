@@ -1,0 +1,4 @@
+# ninja log v7
+0	5290	1772882570514742746	/root/te/segearth_r2/model/mask_decoder/Mask2Former_Simplify/modeling/pixel_decoder/ops/build/temp.linux-x86_64-cpython-312/root/te/segearth_r2/model/mask_decoder/Mask2Former_Simplify/modeling/pixel_decoder/ops/src/cpu/ms_deform_attn_cpu.o	1cea3774df135248
+1	16656	1772882570514742746	/root/te/segearth_r2/model/mask_decoder/Mask2Former_Simplify/modeling/pixel_decoder/ops/build/temp.linux-x86_64-cpython-312/root/te/segearth_r2/model/mask_decoder/Mask2Former_Simplify/modeling/pixel_decoder/ops/src/vision.o	82aa05ba5b209bd5
+27	20744	1772882641524751286	/root/te/segearth_r2/model/mask_decoder/Mask2Former_Simplify/modeling/pixel_decoder/ops/build/temp.linux-x86_64-cpython-312/root/te/segearth_r2/model/mask_decoder/Mask2Former_Simplify/modeling/pixel_decoder/ops/src/cuda/ms_deform_attn_cuda.o	4d178048568663e2
