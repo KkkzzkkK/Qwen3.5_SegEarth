@@ -22,7 +22,12 @@ SegEarth-R2-Qwen3.5 是一个面向遥感图像语言引导分割任务的多模
 - 输出与该语言语义对应的像素级分割掩码
 
 与传统语义分割不同，这类任务不仅要求模型具备高分辨率视觉感知能力，还要求模型能够理解复杂文本语义，并将文本语义准确映射到图像中的目标区域。
-
+<div align="center">
+  <p>
+    <a href="https://www.ultralytics.com/events/yolovision?utm_source=github&utm_medium=org&utm_campaign=yv25_event" target="_blank">
+      <img width="100%" src="https://github.com/user-attachments/assets/656d9b12-d829-4d7a-8d53-deb19334dc91" alt="Ultralytics YOLO banner"></a>
+  </p>
+</div>
 本项目的核心思路是：
 
 - 用 `Qwen3.5-4B` 负责多模态语义理解
